@@ -10,3 +10,12 @@ class Income(models.Model):
     income_pos = models.FloatField()
     income_sum = models.FloatField()
     date = models.DateField()
+
+
+class Expenses(models.Model):
+
+    def __str__(self):
+        return str(self.date) + ' : ' + str(self.expenses) + ' €'
+
+    expenses = models.FloatField()
+    date = models.DateField()
