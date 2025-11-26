@@ -16,8 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+#API
+from rest_framework import routers
+from income_expenses.views import IncomeViewSet
+
+#API
+router = routers.DefaultRouter()
+router.register('income-api',IncomeViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('income_expenses.urls'))
+    path('', include('income_expenses.urls')),
+    #API
+    path('api/',include(router.urls)),
 ]
